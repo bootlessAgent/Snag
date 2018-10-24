@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SiteTableViewController: UITableViewController {
-
+    
     
     var siteArray = [Site]()
     
@@ -19,17 +19,17 @@ class SiteTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         tableView.separatorStyle = .none
         loadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //   self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         
@@ -48,6 +48,7 @@ class SiteTableViewController: UITableViewController {
             detailField = detailAlertField
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             let newSite = Site(context: self.context)
             
@@ -58,6 +59,9 @@ class SiteTableViewController: UITableViewController {
             self.saveData()
         }
         
+        
+        
+        alert.addAction(cancelAction)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
@@ -68,7 +72,7 @@ class SiteTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
@@ -76,28 +80,28 @@ class SiteTableViewController: UITableViewController {
         
         //return 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "siteCell", for: indexPath)
-
+        
         cell.textLabel?.text = siteArray[indexPath.row].title
         cell.detailTextLabel?.text = siteArray[indexPath.row].detail
         
         // Configure the cell...
-
+        
         return cell
     }
     
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -116,7 +120,9 @@ class SiteTableViewController: UITableViewController {
             
             alert.addAction(cancelAction)
             alert.addAction(deleteAction)
-            present(alert, animated: true, completion: nil)
+            present(alert, animated: true) {
+                self.saveData()
+            }
             
             
         } else if editingStyle == .insert {
@@ -124,22 +130,22 @@ class SiteTableViewController: UITableViewController {
         }    
     }
     
-
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     //MARK: - TableView Delegates
     
     
@@ -148,18 +154,18 @@ class SiteTableViewController: UITableViewController {
     
     
     
-     //MARK: - Navigation
-
-     //In a storyboard-based application, you will often want to do a little preparation before navigation
+    //MARK: - Navigation
+    
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      //   Get the new view controller using segue.destination.
+        //   Get the new view controller using segue.destination.
         let destinationVC = segue.destination as! BuildingTableViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedSite = siteArray[indexPath.row]
         }
         
-     //    Pass the selected object to the new view controller.
+        //    Pass the selected object to the new view controller.
     }
     
     
@@ -183,5 +189,5 @@ class SiteTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
+    
 }

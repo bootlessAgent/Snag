@@ -7,55 +7,49 @@
 //
 
 import UIKit
+import CoreData
 
 class BuildingTableViewController: UITableViewController {
 
     var selectedSite : Site? {
         didSet {
-            
+            loadData()
         }
     }
+    
+    var buildingArray = [Building]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+ 
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return buildingArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let buildCell = tableView.dequeueReusableCell(withIdentifier: "buildCell", for: indexPath)
 
+        buildCell.textLabel?.text = buildingArray[indexPath.row].title
+        buildCell.detailTextLabel?.text = buildingArray[indexPath.row].detail
+        
         // Configure the cell...
 
-        return cell
+        return buildCell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -84,14 +78,92 @@ class BuildingTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        let destinationVC = segue.destination as! RoomTableViewController
+//
+//        destinationVC
+//
+//
+//        // Pass the selected object to the new view controller.
+//    }
+//
 
+    //MARK: - User input Actions
+    
+    @IBAction func addPressed(_ sender: UIBarButtonItem) {
+        var titleField = UITextField()
+        var detailField = UITextField()
+        
+        let alert = UIAlertController(title: "Add a new building", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { (titleAlertField) in
+            titleAlertField.placeholder = "New Building Name"
+            titleField = titleAlertField
+        }
+        
+        alert.addTextField { (detailAlertField) in
+            detailAlertField.placeholder = "Enter Building Details"
+            detailField = detailAlertField
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+            let newBuilding = Building(context: self.context)
+            
+            newBuilding.title = titleField.text!
+            newBuilding.detail = detailField.text!
+            newBuilding.parentSite = self.selectedSite
+            
+            self.buildingArray.append(newBuilding)
+        }
+        
+        
+        
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+        present(alert, animated: true) {
+            self.saveData()
+        }
+    }
+    
+    
+    
+    //MARK: - Data Model manupulation
+    func loadData(with request: NSFetchRequest<Building> = Building.fetchRequest(), predicate: NSPredicate? = nil){
+        
+        let sitePredicate = NSPredicate(format: "parentSite.title MATCHES %@", selectedSite!.title!)
+        
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [sitePredicate, additionalPredicate])
+        }else {
+            request.predicate = sitePredicate
+        }
+        
+        do {
+            buildingArray = try context.fetch(request)
+        }catch{
+            print("Error loading context \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    
+    func saveData(){
+        
+        do {
+            try context.save()
+        }catch {
+            print("Error saving context \(error)")
+        }
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
 }

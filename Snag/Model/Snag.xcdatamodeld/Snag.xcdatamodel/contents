@@ -4,18 +4,18 @@
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="parentSite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Site" inverseName="buildings" inverseEntity="Site" syncable="YES"/>
-        <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Room" inverseName="parentBuilding" inverseEntity="Room" syncable="YES"/>
+        <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Room" inverseName="parentBuilding" inverseEntity="Room" syncable="YES"/>
     </entity>
     <entity name="Room" representedClassName="Room" syncable="YES" codeGenerationType="class">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="parentBuilding" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="rooms" inverseEntity="Building" syncable="YES"/>
-        <relationship name="snags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Snag" inverseName="parentRoom" inverseEntity="Snag" syncable="YES"/>
+        <relationship name="snags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Snag" inverseName="parentRoom" inverseEntity="Snag" syncable="YES"/>
     </entity>
     <entity name="Site" representedClassName="Site" syncable="YES" codeGenerationType="class">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="buildings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Building" inverseName="parentSite" inverseEntity="Building" syncable="YES"/>
+        <relationship name="buildings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Building" inverseName="parentSite" inverseEntity="Building" syncable="YES"/>
     </entity>
     <entity name="Snag" representedClassName="Snag" syncable="YES" codeGenerationType="class">
         <attribute name="detail" attributeType="String" syncable="YES"/>
@@ -24,9 +24,9 @@
         <relationship name="parentRoom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="snags" inverseEntity="Room" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Snag" positionX="-6320.7109375" positionY="-7759.78515625" width="128" height="103"/>
-        <element name="Room" positionX="-6105.1796875" positionY="-7862.6171875" width="128" height="103"/>
         <element name="Building" positionX="-6326.38671875" positionY="-7909.421875" width="128" height="103"/>
+        <element name="Room" positionX="-6105.1796875" positionY="-7862.6171875" width="128" height="103"/>
         <element name="Site" positionX="-6104.44140625" positionY="-8003.0078125" width="128" height="88"/>
+        <element name="Snag" positionX="-6320.7109375" positionY="-7759.78515625" width="128" height="103"/>
     </elements>
 </model>
