@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4473775D2180752400B7B121 /* SiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473775C2180752400B7B121 /* SiteTableViewController.swift */; };
+		4473775F2180803900B7B121 /* BuildingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473775E2180803900B7B121 /* BuildingTableViewController.swift */; };
+		447377612180804900B7B121 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447377602180804900B7B121 /* RoomTableViewController.swift */; };
+		447377632180805800B7B121 /* SnagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447377622180805800B7B121 /* SnagTableViewController.swift */; };
+		447377672180814F00B7B121 /* CustomSnagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447377662180814F00B7B121 /* CustomSnagCell.xib */; };
+		447377692180823500B7B121 /* SnagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447377682180823500B7B121 /* SnagCell.swift */; };
 		448DC98321766FDD00ED9671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DC98221766FDD00ED9671 /* AppDelegate.swift */; };
-		448DC98521766FDD00ED9671 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DC98421766FDD00ED9671 /* MainMenuController.swift */; };
 		448DC98821766FDD00ED9671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448DC98621766FDD00ED9671 /* Main.storyboard */; };
 		448DC98B21766FDD00ED9671 /* Snag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 448DC98921766FDD00ED9671 /* Snag.xcdatamodeld */; };
 		448DC98D21766FDE00ED9671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448DC98C21766FDE00ED9671 /* Assets.xcassets */; };
@@ -16,9 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4473775C2180752400B7B121 /* SiteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTableViewController.swift; sourceTree = "<group>"; };
+		4473775E2180803900B7B121 /* BuildingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewController.swift; sourceTree = "<group>"; };
+		447377602180804900B7B121 /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
+		447377622180805800B7B121 /* SnagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnagTableViewController.swift; sourceTree = "<group>"; };
+		447377662180814F00B7B121 /* CustomSnagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSnagCell.xib; sourceTree = "<group>"; };
+		447377682180823500B7B121 /* SnagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnagCell.swift; sourceTree = "<group>"; };
 		448DC97F21766FDD00ED9671 /* Snag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		448DC98221766FDD00ED9671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		448DC98421766FDD00ED9671 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		448DC98721766FDD00ED9671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		448DC98A21766FDD00ED9671 /* Snag.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snag.xcdatamodel; sourceTree = "<group>"; };
 		448DC98C21766FDE00ED9671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +47,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		447377582180702C00B7B121 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				448DC98621766FDD00ED9671 /* Main.storyboard */,
+				448DC98E21766FDE00ED9671 /* LaunchScreen.storyboard */,
+				447377662180814F00B7B121 /* CustomSnagCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		447377592180703A00B7B121 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4473775C2180752400B7B121 /* SiteTableViewController.swift */,
+				4473775E2180803900B7B121 /* BuildingTableViewController.swift */,
+				447377602180804900B7B121 /* RoomTableViewController.swift */,
+				447377622180805800B7B121 /* SnagTableViewController.swift */,
+				447377682180823500B7B121 /* SnagCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4473775A2180704500B7B121 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				448DC98921766FDD00ED9671 /* Snag.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4473775B2180704C00B7B121 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				448DC98C21766FDE00ED9671 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		448DC97621766FDD00ED9671 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +104,12 @@
 		448DC98121766FDD00ED9671 /* Snag */ = {
 			isa = PBXGroup;
 			children = (
-				448DC98221766FDD00ED9671 /* AppDelegate.swift */,
-				448DC98421766FDD00ED9671 /* MainMenuController.swift */,
-				448DC98621766FDD00ED9671 /* Main.storyboard */,
-				448DC98C21766FDE00ED9671 /* Assets.xcassets */,
-				448DC98E21766FDE00ED9671 /* LaunchScreen.storyboard */,
 				448DC99121766FDE00ED9671 /* Info.plist */,
-				448DC98921766FDD00ED9671 /* Snag.xcdatamodeld */,
+				448DC98221766FDD00ED9671 /* AppDelegate.swift */,
+				447377592180703A00B7B121 /* Controllers */,
+				4473775A2180704500B7B121 /* Model */,
+				4473775B2180704C00B7B121 /* Supporting Files */,
+				447377582180702C00B7B121 /* Views */,
 			);
 			path = Snag;
 			sourceTree = "<group>";
@@ -127,6 +174,7 @@
 			files = (
 				448DC99021766FDE00ED9671 /* LaunchScreen.storyboard in Resources */,
 				448DC98D21766FDE00ED9671 /* Assets.xcassets in Resources */,
+				447377672180814F00B7B121 /* CustomSnagCell.xib in Resources */,
 				448DC98821766FDD00ED9671 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448DC98521766FDD00ED9671 /* MainMenuController.swift in Sources */,
+				447377612180804900B7B121 /* RoomTableViewController.swift in Sources */,
 				448DC98B21766FDD00ED9671 /* Snag.xcdatamodeld in Sources */,
+				447377632180805800B7B121 /* SnagTableViewController.swift in Sources */,
 				448DC98321766FDD00ED9671 /* AppDelegate.swift in Sources */,
+				4473775D2180752400B7B121 /* SiteTableViewController.swift in Sources */,
+				4473775F2180803900B7B121 /* BuildingTableViewController.swift in Sources */,
+				447377692180823500B7B121 /* SnagCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
