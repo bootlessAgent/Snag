@@ -24,6 +24,8 @@ class SnagTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         loadData()
         
     }
@@ -39,15 +41,19 @@ class SnagTableViewController: UITableViewController {
         return snagArray.count
     }
     
-    /*
+    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     let snagCell = tableView.dequeueReusableCell(withIdentifier: "snagCell", for: indexPath) as! SnagCell
      
+        snagCell.cellTitle.text = snagArray[indexPath.row].title
+        snagCell.cellDetail.text = snagArray[indexPath.row].detail
+        snagCell.cellBackground.backgroundColor = UIColor.darkGray
+        snagCell.cellImage.image = UIImage(named: "wallImage")
      // Configure the cell...
      
-     return cell
+     return snagCell
      }
-     */
+ 
     
     /*
      // Override to support conditional editing of the table view.

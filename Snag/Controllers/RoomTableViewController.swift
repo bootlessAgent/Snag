@@ -81,16 +81,18 @@ class RoomTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        // Get the new view controller using segue.destination.
-    //        let destinationVC = segue.destination as! RoomTableViewController
-    //
-    //        destinationVC
-    //
-    //
-    //        // Pass the selected object to the new view controller.
-    //    }
-    //
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Get the new view controller using segue.destination.
+            let destinationVC = segue.destination as! SnagTableViewController
+    
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destinationVC.selectedRoom = roomArray[indexPath.row]
+            }
+    
+    
+            // Pass the selected object to the new view controller.
+        }
+    
     
     //MARK: - User input Actions
     

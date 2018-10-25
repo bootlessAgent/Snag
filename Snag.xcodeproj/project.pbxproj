@@ -13,6 +13,7 @@
 		447377632180805800B7B121 /* SnagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447377622180805800B7B121 /* SnagTableViewController.swift */; };
 		447377672180814F00B7B121 /* CustomSnagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447377662180814F00B7B121 /* CustomSnagCell.xib */; };
 		447377692180823500B7B121 /* SnagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447377682180823500B7B121 /* SnagCell.swift */; };
+		4480227D21820CDA007CE947 /* AddSnagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480227C21820CDA007CE947 /* AddSnagViewController.swift */; };
 		448DC98321766FDD00ED9671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DC98221766FDD00ED9671 /* AppDelegate.swift */; };
 		448DC98821766FDD00ED9671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448DC98621766FDD00ED9671 /* Main.storyboard */; };
 		448DC98B21766FDD00ED9671 /* Snag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 448DC98921766FDD00ED9671 /* Snag.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 		447377622180805800B7B121 /* SnagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnagTableViewController.swift; sourceTree = "<group>"; };
 		447377662180814F00B7B121 /* CustomSnagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSnagCell.xib; sourceTree = "<group>"; };
 		447377682180823500B7B121 /* SnagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnagCell.swift; sourceTree = "<group>"; };
+		4480227C21820CDA007CE947 /* AddSnagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSnagViewController.swift; sourceTree = "<group>"; };
 		448DC97F21766FDD00ED9671 /* Snag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		448DC98221766FDD00ED9671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		448DC98721766FDD00ED9671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				447377602180804900B7B121 /* RoomTableViewController.swift */,
 				447377622180805800B7B121 /* SnagTableViewController.swift */,
 				447377682180823500B7B121 /* SnagCell.swift */,
+				4480227C21820CDA007CE947 /* AddSnagViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				4473775D2180752400B7B121 /* SiteTableViewController.swift in Sources */,
 				4473775F2180803900B7B121 /* BuildingTableViewController.swift in Sources */,
 				447377692180823500B7B121 /* SnagCell.swift in Sources */,
+				4480227D21820CDA007CE947 /* AddSnagViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
