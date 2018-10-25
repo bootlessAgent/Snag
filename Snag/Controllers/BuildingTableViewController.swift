@@ -24,7 +24,7 @@ class BuildingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+loadData()
  
     }
 
@@ -81,16 +81,16 @@ class BuildingTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        let destinationVC = segue.destination as! RoomTableViewController
-//
-//        destinationVC
-//
-//
-//        // Pass the selected object to the new view controller.
-//    }
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //   Get the new view controller using segue.destination.
+        let destinationVC = segue.destination as! RoomTableViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedBuilding = buildingArray[indexPath.row]
+        }
+        
+        //    Pass the selected object to the new view controller.
+    }
 
     //MARK: - User input Actions
     
@@ -119,15 +119,14 @@ class BuildingTableViewController: UITableViewController {
             newBuilding.parentSite = self.selectedSite
             
             self.buildingArray.append(newBuilding)
+            self.saveData()
         }
         
         
         
         alert.addAction(cancelAction)
         alert.addAction(action)
-        present(alert, animated: true) {
-            self.saveData()
-        }
+        present(alert, animated: true, completion: nil)
     }
     
     

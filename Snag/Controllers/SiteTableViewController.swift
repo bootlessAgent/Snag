@@ -11,7 +11,6 @@ import CoreData
 
 class SiteTableViewController: UITableViewController {
     
-    
     var siteArray = [Site]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -32,6 +31,7 @@ class SiteTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
+        
         
         var titleField = UITextField()
         var detailField = UITextField()
@@ -65,7 +65,7 @@ class SiteTableViewController: UITableViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
-        
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
